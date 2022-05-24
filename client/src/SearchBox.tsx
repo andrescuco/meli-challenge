@@ -1,5 +1,7 @@
 import { useState, ChangeEvent } from 'react'
 import { useNavigate, Outlet } from "react-router-dom";
+import logo from "../assets/logo.png"
+import searchIcon from "../assets/search-icon.png"
 import './SearchBox.scss'
 
 function SearchBox() {
@@ -15,13 +17,18 @@ function SearchBox() {
   };
 
   return (
-  <>
-    <div className="search-container">
-      <input type="text" placeholder="Nunca dejes de buscar" onChange={handleChange} />
-      <input type="button" value="Submit" onClick={handleSubmit} />
-      </div>
+    <div className="grid">
+      {/*<div className="search-box-container">*/}
+        <img src={logo} alt="meli logo"/>
+        <div className="search-box">
+          <input type="text" placeholder="Nunca dejes de buscar" onChange={handleChange} />
+          <button onClick={handleSubmit}>
+            <img src={searchIcon} alt="magnifying glass icon"/>
+          </button>
+        </div>
+      {/*</div>*/}
       <Outlet />
-      </>
+    </div>
   );
 }
 

@@ -1,15 +1,12 @@
 import { Product } from "./types";
 
-type ProductCardProps = Product;
-
 export default function ProductCard({
-  id,
   title,
   price,
   thumbnail,
   shipping,
   address
-}: ProductCardProps) {
+}: Product) {
   return (
     <div>
       <img src={thumbnail} alt={`product ${title}`} />

@@ -11,6 +11,8 @@ export type Product = {
   title: string;
   price: number;
   thumbnail: string;
+  condition?: string;
+  sold_quantity?: number;
   shipping: Shipping;
   address: Address;
 };

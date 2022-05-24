@@ -1,6 +1,6 @@
 import { useState, ChangeEvent } from 'react'
 import { useNavigate, Outlet } from "react-router-dom";
-import './SearchBox.css'
+import './SearchBox.scss'
 
 function SearchBox() {
   const navigate = useNavigate();
@@ -15,11 +15,13 @@ function SearchBox() {
   };
 
   return (
-    <div>
-      <input type="text" onChange={handleChange} />
+  <>
+    <div className="search-container">
+      <input type="text" placeholder="Nunca dejes de buscar" onChange={handleChange} />
       <input type="button" value="Submit" onClick={handleSubmit} />
+      </div>
       <Outlet />
-    </div>
+      </>
   );
 }
 

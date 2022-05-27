@@ -1,6 +1,5 @@
-import { BASE_URL } from "../../constants";
 import { Product } from "../../types";
-import { Link, useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import ProductCard from "../../components/ProductCard";
 import BreadCrumb from "../../components/BreadCrumb";
@@ -8,18 +7,23 @@ import axios from "axios";
 import s from "./ProductList.module.css";
 
 export default function ProductsList() {
+  const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const [products, setProducts] = useState<Product[]>([]);
   const searchQuery = searchParams.get('search');
 
   const getProductsListData = async () => {
-    const { data } = await axios.get(`${BASE_URL}/sites/MLA/search`, {
-      params: { q: searchQuery }
+    const { data } = await axios.get(`/api/items`, {
+      params: { search: searchQuery }
     });
 
-    setProducts(data.results.slice(0, 4));
+    setProducts(data.items);
     return data;
   };
+
+  const onProductClick = (productId: string) => {
+    navigate(`/items/${productId}`);
+  }
 
   useEffect(() => {
     getProductsListData();
@@ -29,16 +33,16 @@ export default function ProductsList() {
     <div className={s.container}>
       <BreadCrumb />
       {products.map((product: Product) => (
-        <Link to={`/items/${product.id}`} key={product.id} style={{ color: 'inherit', textDecoration: 'none' }}>
           <ProductCard
+            key={product.id}
             id={product.id}
             title={product.title}
-            price={product.price}
-            thumbnail={product.thumbnail}
-            shipping={product.shipping}
-            address={product.address}
+            price={product.price.amount}
+            picture={product.picture}
+            hasFreeShipping={product.free_shipping}
+            stateName={product.state_name}
+            onProductClick={onProductClick}
           />
-        </Link>
       ))}
     </div>
   );

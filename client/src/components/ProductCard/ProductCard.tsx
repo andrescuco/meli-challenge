@@ -1,30 +1,41 @@
-import { Product } from "../../types";
 import FreeShippingIcon from "../../../assets/free-shipping-icon.png"
 import s from "./ProductCard.module.css";
 
+type ProductCardProps = {
+  id: string;
+  title: string;
+  price: number;
+  picture: string;
+  hasFreeShipping: boolean;
+  stateName: string;
+  onProductClick: (productId: string) => void
+}
+
 export default function ProductCard({
+  id,
   title,
   price,
-  thumbnail,
-  shipping,
-  address
-}: Product) {
+  picture,
+  hasFreeShipping,
+  stateName,
+  onProductClick,
+}: ProductCardProps) {
   return (
     <div className={s.grid}>
-    <div className={s.container}>
-      <img src={thumbnail} alt={`product ${title}`} className={s.image} />
+    <div className={s.container} onClick={() => onProductClick(id)}>
+      <img src={picture} alt={`product ${title}`} className={s.image} />
 
       <div className={s.info}>
       <div className={s.summary}>
         <div className={s.priceAndShipping}>
-          <span className={s.price}> $ {price.toLocaleString('de-DE')}</span>
-          <span>{shipping.free_shipping && <img src={FreeShippingIcon} alt="shipping truck with green background" />}</span>
+          <span className={s.price}> $ {price.toLocaleString()}</span>
+          <span>{hasFreeShipping && <img src={FreeShippingIcon} alt="shipping truck with green background" />}</span>
         </div>
         <span>{title}</span>
       </div>
 
       <div className={s.state}>
-        <span>{address.state_name}</span>
+        <span>{stateName}</span>
       </div>
       </div>
     </div>

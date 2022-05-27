@@ -1,21 +1,19 @@
 import { App } from "../App";
-import userEvent from "@testing-library/user-event";
-
 import { mockProductDetail, mockSearch } from "../__mocks__/apiMocks";
 import { rest } from 'msw';
 import { setupServer } from "msw/node";
-import { screen, render, fireEvent } from "@testing-library/react";
+import { screen, render, fireEvent, waitForElementToBeRemoved } from "@testing-library/react";
 
 describe("<ProductsSearch />", () => {
   const server = setupServer(
     rest.get(
-      '/api/items?search=airpods',
+      '/api/items',
       (_, res, ctx) => {
         return res(ctx.status(200), ctx.json(mockSearch));
       }
     ),
-    rest.put(
-      '/api/items/MLA935826998',
+    rest.get(
+      '/api/items/MLA812447160',
       (_, res, ctx) => {
         return res(
           ctx.status(200),
@@ -32,24 +30,26 @@ describe("<ProductsSearch />", () => {
   afterEach(() => server.resetHandlers());
 
   it("should render results on product search", async () => {
-    const { getByRole, findByText } = render(<App />);
-    const searchInput = getByRole('textbox');
-    const submitButton = getByRole('button', {
+    const { findByRole, findByText, queryByText } = render(<App />);
+    const searchInput = await findByRole('textbox');
+    const submitButton = await findByRole('button', {
       name: /magnifying glass icon/i
+
     })
 
     fireEvent.change(searchInput, { "target": { "value": "airpods" }});
-    userEvent.click(submitButton);
-
     expect(searchInput).toHaveValue('airpods');
 
-    // Render products list after submission
+    fireEvent.click(submitButton);
+    expect(await findByText(/\$ 10,864\.1/i)).toBeInTheDocument();
     expect(await findByText("Film Tricapa iPod Nano Touch 6 Generacion Combo 5 Unidades")).toBeInTheDocument();
 
-    screen.logTestingPlaygroundURL();
-  })
+    fireEvent.click(await findByText("Film Tricapa iPod Nano Touch 6 Generacion Combo 5 Unidades"));
 
-  it("should go to product detail on click", async () => {
+    if (queryByText(/loading/i)) {
+      await waitForElementToBeRemoved(queryByText(/loading/i));
+    }
 
+    expect(await findByText(/comprar/i)).toBeInTheDocument();
   })
 });

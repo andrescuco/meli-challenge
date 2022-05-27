@@ -88,7 +88,7 @@ export const mockProductDetail = {
     name: "Andrés",
     lastname: "Cuellar",
   },
-  id: "MLA935826998",
+  id: "MLA812447160",
   title: "iPod Touch 32gb - Silver",
   price: {
     currency: "ARS",

@@ -4,13 +4,13 @@ import axios from "axios";
 // import './BreadCrumb.css'
 
 function BreadCrumb() {
-  const getData = async () => {
-    const { data } = await axios.get('/api/v1/emojis');
-  }
+  // const getData = async () => {
+  //   const { data } = await axios.get('/api/v1/emojis');
+  // }
 
-  useEffect(() => {
-    getData();
-  }, []);
+  // useEffect(() => {
+  //   getData();
+  // }, []);
 
   return (
     <div>

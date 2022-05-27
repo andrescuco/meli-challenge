@@ -51,7 +51,7 @@ router.get("/", async (req, res, next) => {
 });
 
 /**
- * Given the id of a product, it returns it's detailed information.
+ * Given the id of a product, it returns its detailed information.
  */
 router.get("/:id", async (req, res, next) => {
   try {

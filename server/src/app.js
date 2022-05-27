@@ -25,32 +25,36 @@ const author = {
 };
 
 app.get("/", async (req, res) => {
-  const searchQuery = req.query.search;
-  const { data } = await axios.get(`${BASE_URL}/sites/MLA/search`, {
-    params: { q: searchQuery },
-  });
+  try {
+    const searchQuery = req.query.search;
+    const { data } = await axios.get(`${BASE_URL}/sites/MLA/search`, {
+      params: { q: searchQuery },
+    });
 
-  const products = data.results.slice(0, 4).map((product) => {
-    const numberOfDecimals =
-      product.price.toString().split(".")[1]?.length ?? 0;
+    const products = data.results.slice(0, 4).map((product) => {
+      const numberOfDecimals =
+        product.price.toString().split(".")[1]?.length ?? 0;
 
-    // TODO: Add categories array
-    return {
-      id: product.id,
-      title: product.title,
-      price: {
-        currency: product.currency_id,
-        amount: product.price,
-        decimals: numberOfDecimals,
-      },
-      picture: product.thumbnail,
-      condition: product.condition,
-      free_shipping: product.shipping.free_shipping,
-      state_name: product.address.state_name,
-    };
-  });
+      // TODO: Add categories array
+      return {
+        id: product.id,
+        title: product.title,
+        price: {
+          currency: product.currency_id,
+          amount: product.price,
+          decimals: numberOfDecimals,
+        },
+        picture: product.thumbnail,
+        condition: product.condition,
+        free_shipping: product.shipping.free_shipping,
+        state_name: product.address.state_name,
+      };
+    });
 
-  res.json({ ...author, items: products });
+    res.json({ ...author, items: products });
+  } catch (error) {
+    console.error(error);
+  }
 });
 
 app.get("/items/:id", async (req, res) => {

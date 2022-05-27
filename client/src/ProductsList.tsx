@@ -25,7 +25,7 @@ export default function ProductsList() {
   }, [searchParams]);
 
   return (
-      <>
+      <div className="grid">
       <BreadCrumb />
       {products.map((product: Product) => (
         <Link to={`/items/${product.id}`} key={product.id}>
@@ -39,6 +39,6 @@ export default function ProductsList() {
           />
         </Link>
       ))}
-      </>
+      </div>
   );
 }

@@ -1,8 +1,8 @@
 import { useState, ChangeEvent } from 'react'
-import { useNavigate, Outlet } from "react-router-dom";
+import { useNavigate, Outlet, Link } from "react-router-dom";
 import logo from "../assets/logo.png"
 import searchIcon from "../assets/search-icon.png"
-import './SearchBox.scss'
+import s from './SearchBox.module.css'
 
 function SearchBox() {
   const navigate = useNavigate();
@@ -17,18 +17,20 @@ function SearchBox() {
   };
 
   return (
-    <div className="grid">
-      {/*<div className="search-box-container">*/}
-        <img src={logo} alt="meli logo"/>
-        <div className="search-box">
+    <>
+    <div className={s.grid}>
+        <Link to="/">
+          <img src={logo} alt="meli logo"/>
+        </Link>
+        <div className={s.searchBox}>
           <input type="text" placeholder="Nunca dejes de buscar" onChange={handleChange} />
           <button onClick={handleSubmit}>
             <img src={searchIcon} alt="magnifying glass icon"/>
           </button>
         </div>
-      {/*</div>*/}
-      <Outlet />
     </div>
+    <Outlet />
+    </>
   );
 }
 

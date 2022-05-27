@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Product } from "./types";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import s from "./ProductDetail.module.css";
 
 export default function ProductDetail() {
   const { id } = useParams();
@@ -20,13 +21,17 @@ export default function ProductDetail() {
   if (!product) return <span>"Loading..."</span>;
 
   return (
-    <div>
+    <div className={s.grid}>
+    <div className={s.container}>
       <img src={product.thumbnail} alt={`product ${product.title}`} />
-      <span>{product.price}</span>
-      <span>{product.title}</span>
-      <span>{product.condition}</span>
-      <span>{product.sold_quantity}</span>
-      <button>Comprar</button>
+
+      <div className={s.info}>
+        <span>{product.condition} - {product.sold_quantity} vendidos</span>
+        <span>{product.title}</span>
+        <span>{product.price}</span>
+        <button>Comprar</button>
+      </div>
+    </div>
     </div>
   );
 }

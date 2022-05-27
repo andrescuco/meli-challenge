@@ -23,8 +23,6 @@ router.get("/", async (req, res, next) => {
       (filter) => (filter.id = "category")
     );
 
-    console.log(data.available_filters);
-
     const categories = sortArrayOfObjectsByKey(
       availableFiltersCategories.values,
       "results"

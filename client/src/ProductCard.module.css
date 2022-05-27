@@ -1,0 +1,47 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 1fr;
+}
+
+.container {
+  padding: 16px;
+  display: flex;
+  grid-column-start: 2;
+  grid-column-end: 12;
+  background-color: #FFFFFF;
+}
+
+.image {
+  width: 180px;
+  height: 180px;
+  border-radius: 4px;
+  margin: 0 16px;
+}
+
+.price {
+  margin-right: 12px;
+}
+
+.priceAndShipping {
+  font-size: 24px;
+  display: flex;
+  margin-bottom: 32px;
+}
+
+.info {
+  width: 100%;
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.summary {
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+.state {
+  font-size: 12px;
+}

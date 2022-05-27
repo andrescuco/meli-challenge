@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import ProductCard from "./ProductCard";
 import BreadCrumb from "./BreadCrumb";
 import axios from "axios";
+import s from "./ProductList.module.css";
 
 export default function ProductsList() {
   const [searchParams] = useSearchParams();
@@ -25,10 +26,10 @@ export default function ProductsList() {
   }, [searchParams]);
 
   return (
-      <div className="grid">
+    <div className={s.container}>
       <BreadCrumb />
       {products.map((product: Product) => (
-        <Link to={`/items/${product.id}`} key={product.id}>
+        <Link to={`/items/${product.id}`} key={product.id} style={{ color: 'inherit', textDecoration: 'none' }}>
           <ProductCard
             id={product.id}
             title={product.title}
@@ -39,6 +40,6 @@ export default function ProductsList() {
           />
         </Link>
       ))}
-      </div>
+    </div>
   );
 }

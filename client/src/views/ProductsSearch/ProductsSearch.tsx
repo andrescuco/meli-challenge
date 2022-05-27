@@ -1,8 +1,8 @@
 import { useState, ChangeEvent } from 'react'
 import { useNavigate, Outlet, Link } from "react-router-dom";
-import logo from "../assets/logo.png"
-import searchIcon from "../assets/search-icon.png"
-import s from './SearchBox.module.css'
+import logo from "../../../assets/logo.png"
+import searchIcon from "../../../assets/search-icon.png"
+import s from './ProductsSearch.module.css'
 
 function SearchBox() {
   const navigate = useNavigate();

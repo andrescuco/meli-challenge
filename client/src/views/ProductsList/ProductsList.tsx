@@ -1,9 +1,9 @@
-import { BASE_URL } from "./constants";
-import { Product } from "./types";
+import { BASE_URL } from "../../constants";
+import { Product } from "../../types";
 import { Link, useSearchParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import ProductCard from "./ProductCard";
-import BreadCrumb from "./BreadCrumb";
+import ProductCard from "../../components/ProductCard";
+import BreadCrumb from "../../components/BreadCrumb";
 import axios from "axios";
 import s from "./ProductList.module.css";
 

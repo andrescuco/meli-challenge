@@ -1,5 +1,5 @@
-import { Product } from "./types";
-import FreeShippingIcon from "../assets/free-shipping-icon.png"
+import { Product } from "../../types";
+import FreeShippingIcon from "../../../assets/free-shipping-icon.png"
 import s from "./ProductCard.module.css";
 
 export default function ProductCard({

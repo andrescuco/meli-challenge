@@ -1,6 +1,6 @@
-import { BASE_URL } from "./constants";
+import { BASE_URL } from "../../constants";
 import { useEffect, useState } from "react";
-import { Product } from "./types";
+import { Product } from "../../types";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import s from "./ProductDetail.module.css";

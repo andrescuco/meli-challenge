@@ -44,7 +44,7 @@ router.get("/", async (req, res, next) => {
       };
     });
 
-    res.json({ ...author, ...items, categories });
+    res.json({ ...author, items, categories });
   } catch (error) {
     next(error);
   }

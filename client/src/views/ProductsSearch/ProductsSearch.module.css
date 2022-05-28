@@ -1,28 +1,11 @@
-:root {
-  --yellow: #ffe600;
-  --black: #333333;
-  --grey: #999999;
-  --light-grey: #eeeeee;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(12, [col] 1fr);
-  grid-column-gap: 1em;
+.container {
   background-color: var(--yellow);
   padding: 0.75rem 0;
-}
-
-.grid a {
-  grid-column-start: 2;
-  width: fit-content;
 }
 
 .searchBox {
   display: flex;
   justify-content: space-between;
-  grid-column-start: 3;
-  grid-column-end: 12;
 }
 
 .searchBox input {

@@ -1,3 +1,4 @@
+import { Container, Row, Col } from "react-bootstrap";
 import FreeShippingIcon from "../../../assets/free-shipping-icon.png";
 import s from "./ProductCard.module.css";
 
@@ -21,31 +22,39 @@ export default function ProductCard({
   onProductClick,
 }: ProductCardProps) {
   return (
-    <div className={s.grid}>
-      <div className={s.container} onClick={() => onProductClick(id)}>
-        <img src={picture} alt={`product ${title}`} className={s.image} />
+    <Container fluid>
+      <Row>
+        <Col md={{ span: 10, offset: 1 }} className={s.container}>
+          <Row onClick={() => onProductClick(id)}>
+            <Col md={{ span: 7 }} className={s.content}>
+              <div className={s.image} >
+              <img src={picture} alt={`product ${title}`}/>
+              </div>
 
-        <div className={s.info}>
-          <div className={s.summary}>
-            <div className={s.priceAndShipping}>
-              <span className={s.price}> $ {price.toLocaleString()}</span>
-              <span>
-                {hasFreeShipping && (
-                  <img
-                    src={FreeShippingIcon}
-                    alt="shipping truck with green background"
-                  />
-                )}
-              </span>
-            </div>
-            <span>{title}</span>
-          </div>
+              <div className={s.info}>
+                <div className={s.summary}>
+                  <div className={s.priceAndShipping}>
+                    <span className={s.price}>$ {price.toLocaleString()}</span>
+                      {hasFreeShipping && (
+                        <img
+                          src={FreeShippingIcon}
+                          alt="shipping truck with green background"
+                        />
+                      )}
+                  </div>
+                  <span>{title}</span>
+                </div>
+              </div>
+            </Col>
 
-          <div className={s.state}>
-            <span>{stateName}</span>
-          </div>
-        </div>
-      </div>
-    </div>
+            <Col md={{ span: 2, offset: 2 }}>
+              <div className={s.state}>
+                <span>{stateName}</span>
+              </div>
+            </Col>
+          </Row>
+        </Col>
+      </Row>
+    </Container>
   );
 }

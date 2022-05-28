@@ -1,50 +1,42 @@
-.grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 1fr;
-}
-
 .container {
-  padding: 16px;
-  display: flex;
-  grid-column-start: 2;
-  grid-column-end: 12;
-  background-color: #FFFFFF;
   cursor: pointer;
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--light-grey);
 }
 
-.image {
+.content {
+  display: flex;
+}
+
+.image img {
   width: 180px;
   height: 180px;
+  object-fit: cover;
   border-radius: 4px;
-  margin: 0 16px;
+  margin: 16px;
 }
 
 .price {
-  margin-right: 12px;
+  margin-right: 6px;
 }
 
 .priceAndShipping {
-  font-size: 24px;
   display: flex;
+  align-items: center;
+  margin-top: 12px;
   margin-bottom: 32px;
 }
 
 .info {
-  width: 100%;
   margin-top: 16px;
-  display: flex;
-  justify-content: space-between;
 }
 
 .summary {
   font-size: 18px;
-  display: flex;
-  flex-direction: column;
 }
 
 .state {
+  margin-top: 16px;
   color: var(--grey);
   font-size: 12px;
-  grid-column-end: 10;
 }

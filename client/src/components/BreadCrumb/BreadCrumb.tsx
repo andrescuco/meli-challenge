@@ -1,4 +1,5 @@
 import { Container, Row, Col } from "react-bootstrap";
+import { ChevronRight } from 'react-bootstrap-icons';
 import s from "./BreadCrumb.module.css";
 
 type BreadCrumbProps = {
@@ -14,8 +15,8 @@ function BreadCrumb({ categories }: BreadCrumbProps) {
             {categories.map((category: string, index) => {
               const isLastCategory = index === categories.length - 1;
 
-              if (isLastCategory) return <span>&nbsp;{category}</span>;
-              return <span>&nbsp;{category} &gt;</span>
+              if (isLastCategory) return <span>&nbsp;<b>{category}</b></span>;
+              return <span>&nbsp;{category} <ChevronRight /></span>
             })}
           </div>
         </Col>

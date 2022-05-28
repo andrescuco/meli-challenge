@@ -10,20 +10,22 @@ export default function ProductsList() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const [products, setProducts] = useState<Product[]>([]);
-  const searchQuery = searchParams.get('search');
+  const [categories, setCategories] = useState<string[]>([]);
+  const searchQuery = searchParams.get("search");
 
   const getProductsListData = async () => {
     const { data } = await axios.get(`/api/items`, {
-      params: { search: searchQuery }
+      params: { search: searchQuery },
     });
 
     setProducts(data.items);
+    setCategories(data.categories);
     return data;
   };
 
   const onProductClick = (productId: string) => {
     navigate(`/items/${productId}`);
-  }
+  };
 
   useEffect(() => {
     getProductsListData();
@@ -31,18 +33,18 @@ export default function ProductsList() {
 
   return (
     <div className={s.container}>
-      <BreadCrumb />
+      <BreadCrumb categories={categories} />
       {products.map((product: Product) => (
-          <ProductCard
-            key={product.id}
-            id={product.id}
-            title={product.title}
-            price={product.price.amount}
-            picture={product.picture}
-            hasFreeShipping={product.free_shipping}
-            stateName={product.state_name}
-            onProductClick={onProductClick}
-          />
+        <ProductCard
+          key={product.id}
+          id={product.id}
+          title={product.title}
+          price={product.price.amount}
+          picture={product.picture}
+          hasFreeShipping={product.free_shipping}
+          stateName={product.state_name}
+          onProductClick={onProductClick}
+        />
       ))}
     </div>
   );

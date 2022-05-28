@@ -44,5 +44,7 @@
 }
 
 .state {
+  color: var(--grey);
   font-size: 12px;
+  grid-column-end: 10;
 }

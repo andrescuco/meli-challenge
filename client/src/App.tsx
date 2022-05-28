@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ProductsSearch from './views/ProductsSearch'
+import ProductsSearch from "./views/ProductsSearch";
 import ProductDetail from "./views/ProductDetail";
 import ProductsList from "./views/ProductsList";
 
-export  const App = () => (
-<div>
-      <BrowserRouter>
+export const App = () => (
+  <div>
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<ProductsSearch />}>
           <Route path="/items/:id" element={<ProductDetail />} />
@@ -13,6 +13,5 @@ export  const App = () => (
         </Route>
       </Routes>
     </BrowserRouter>
-    </div>
-)
-
+  </div>
+);

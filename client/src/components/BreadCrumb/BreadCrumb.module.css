@@ -1,0 +1,14 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 1fr;
+}
+
+.container {
+  grid-column-start: 2;
+  grid-column-end: 12;
+  display: flex;
+  font-size: 14px;
+  margin: 14px 0;
+  color: var(--grey);
+}

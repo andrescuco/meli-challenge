@@ -21,16 +21,17 @@ export default function ProductDetail() {
 
   return (
     <div className={s.grid}>
-    <div className={s.container}>
-      <img src={product.picture} alt={`product ${product.title}`} />
-
-      <div className={s.info}>
-        <span>{product.condition} - {product.sold_quantity} vendidos</span>
-        <span>{product.title}</span>
-        <span>{product.price.amount}</span>
-        <button>Comprar</button>
+      <div className={s.container}>
+        <img src={product.picture} alt={`product ${product.title}`} />
+        <div className={s.info}>
+          <span>
+            {product.condition} - {product.sold_quantity} vendidos
+          </span>
+          <span>{product.title}</span>
+          <span>{product.price.amount}</span>
+          <button>Comprar</button>
+        </div>
       </div>
-    </div>
     </div>
   );
 }

@@ -1,20 +1,20 @@
-import { useEffect } from 'react'
-import axios from "axios";
-// import { useNavigate, Outlet } from "react-router-dom";
-// import './BreadCrumb.css'
+import s from "./BreadCrumb.module.css";
 
-function BreadCrumb() {
-  // const getData = async () => {
-  //   const { data } = await axios.get('/api/v1/emojis');
-  // }
+type BreadCrumbProps = {
+  categories: string[];
+};
 
-  // useEffect(() => {
-  //   getData();
-  // }, []);
-
+function BreadCrumb({ categories }: BreadCrumbProps) {
   return (
-    <div>
-    BreadCrumb
+    <div className={s.grid}>
+      <div className={s.container}>
+        {categories.map((category: string, index) => {
+          const isLastCategory = index === categories.length - 1;
+
+          if (isLastCategory) return <span>&nbsp;{category}</span>;
+          return <span>&nbsp;{category} &gt;</span>
+        })}
+      </div>
     </div>
   );
 }

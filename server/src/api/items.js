@@ -70,13 +70,16 @@ router.get("/:id", async (req, res, next) => {
       }
     );
 
-    const availableFilters = productSearch?.filters.find(
+    const availableFiltersCategories = productSearch.available_filters.find(
       (filter) => (filter.id = "category")
-    )?.values;
+    );
 
-    const categories = availableFilters?.[0]?.path_from_root
+    const categories = sortArrayOfObjectsByKey(
+      availableFiltersCategories.values,
+      "results"
+    )
       .map((category) => category.name)
-      .slice(0, 4);
+      .slice(-4);
 
     const condition = productDetail.attributes.find(
       (attribute) => attribute.id === "ITEM_CONDITION"
@@ -99,8 +102,7 @@ router.get("/:id", async (req, res, next) => {
     res.json({
       ...author,
       ...productInfo,
-      // Add fallback in case the product doesn't have filters
-      categories: categories ?? [productDetail.title],
+      categories,
     });
   } catch (error) {
     next(error);

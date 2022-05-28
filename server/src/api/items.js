@@ -99,10 +99,10 @@ router.get("/:id", async (req, res, next) => {
     res.json({
       ...author,
       ...productInfo,
+      // Add fallback in case the product doesn't have filters
       categories: categories ?? [productDetail.title],
     });
   } catch (error) {
-    console.log(error);
     next(error);
   }
 });

@@ -8,6 +8,9 @@ import {
   waitForElementToBeRemoved,
 } from "@testing-library/react";
 
+/**
+ * Integration test of the entire app flow.
+ */
 describe("<ProductsSearch />", () => {
   const server = setupServer(
     rest.get("/api/items", (_, res, ctx) => {

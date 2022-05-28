@@ -1,3 +1,9 @@
+/**
+ * Mock response of the search endpoint in order to be used on
+ * integration tests.
+ *
+ * @see http://localhost:5000/api/items?search=${searchQuery}
+ */
 export const mockSearch = {
   author: {
     name: "Andrés",
@@ -83,6 +89,12 @@ export const mockSearch = {
   ],
 };
 
+/**
+ * Mock response of the product detail endpoint in order to be used on
+ * integration tests.
+ *
+ * @see http://localhost:5000/api/items/${productId}
+ */
 export const mockProductDetail = {
   author: {
     name: "Andrés",

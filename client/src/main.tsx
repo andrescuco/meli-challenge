@@ -7,15 +7,15 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 // [x] 4. Add tests
 // [x] 1. Use new endpoints
-// [ ] 2. Finish styling
-// [ ] 3. Refractor styles
+// [x] 2. Finish styling
+// [x] 3. Refractor styles
 // [ ] 5. Bugs / retouches
 // [ ] *. Clicking on the logo should go back to the previous search
 // [ ] *. Loading state
 // [x] *. List shouldn't be clickable from the outside
 // [ ] *. Add /views and /components top level index.ts
 // [x] *. Add favicon
-// [ ] *. Run global prettier
+// [x] *. Run global prettier
 // [ ] 6. Documentation
 
 axios.defaults.baseURL = `http://localhost:5000`;

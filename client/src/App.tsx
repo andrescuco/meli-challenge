@@ -4,7 +4,6 @@ import ProductDetail from "./views/ProductDetail";
 import ProductsList from "./views/ProductsList";
 
 export const App = () => (
-  <div>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<ProductsSearch />}>
@@ -13,5 +12,4 @@ export const App = () => (
         </Route>
       </Routes>
     </BrowserRouter>
-  </div>
 );

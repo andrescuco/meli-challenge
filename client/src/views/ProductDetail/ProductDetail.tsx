@@ -43,10 +43,10 @@ export default function ProductDetail() {
       </Row>
       <Row>
         <Col md={{ span: 7, offset: 1 }} className={`${s.content} g-0`}>
-          <div className={s.description}>
+          <section className={s.description}>
             <h2>Descripción del producto</h2>
             <p>{product.description}</p>
-          </div>
+          </section>
         </Col>
         <Col md={{ span: 3 }} className={`${s.content} g-0`}></Col>
       </Row>

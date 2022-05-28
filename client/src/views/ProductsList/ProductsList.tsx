@@ -1,35 +1,11 @@
 import { Product } from "../../types";
-import { useNavigate, useSearchParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import useProductsSearch from "../../hooks/useProductsSearch";
 import ProductCard from "../../components/ProductCard";
 import BreadCrumb from "../../components/BreadCrumb";
-import axios from "axios";
 import s from "./ProductList.module.css";
 
 export default function ProductsList() {
-  const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
-  const [products, setProducts] = useState<Product[]>([]);
-  const [categories, setCategories] = useState<string[]>([]);
-  const searchQuery = searchParams.get("search");
-
-  const getProductsListData = async () => {
-    const { data } = await axios.get(`/api/items`, {
-      params: { search: searchQuery },
-    });
-
-    setProducts(data.items);
-    setCategories(data.categories);
-    return data;
-  };
-
-  const onProductClick = (productId: string) => {
-    navigate(`/items/${productId}`);
-  };
-
-  useEffect(() => {
-    getProductsListData();
-  }, [searchParams]);
+  const { products, categories, onProductClick } = useProductsSearch();
 
   return (
     <div className={s.container}>

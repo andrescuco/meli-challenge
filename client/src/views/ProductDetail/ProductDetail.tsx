@@ -1,23 +1,10 @@
 import { Container, Row, Col } from "react-bootstrap";
-import { useEffect, useState } from "react";
-import { Product } from "../../types";
-import { useParams } from "react-router-dom";
-import axios from "axios";
 import s from "./ProductDetail.module.css";
 import BreadCrumb from "../../components/BreadCrumb";
+import useProductDetail from "../../hooks/useProductDetail";
 
 export default function ProductDetail() {
-  const { id } = useParams();
-  const [product, setProduct] = useState<Product>();
-
-  const getProductDetailData = async () => {
-    const { data } = await axios.get(`/api/items/${id}`);
-    setProduct(data);
-  };
-
-  useEffect(() => {
-    getProductDetailData();
-  }, [id]);
+  const { product } = useProductDetail();
 
   if (!product) return <span>"Loading..."</span>;
 

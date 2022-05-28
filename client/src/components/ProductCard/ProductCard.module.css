@@ -1,7 +1,6 @@
 .container {
   cursor: pointer;
   background-color: #ffffff;
-  border-bottom: 1px solid var(--light-grey);
 }
 
 .content {
@@ -17,6 +16,7 @@
 }
 
 .price {
+  font-size: 24px;
   margin-right: 6px;
 }
 
@@ -36,7 +36,13 @@
 }
 
 .state {
-  margin-top: 16px;
+  margin-top: 36px;
   color: var(--grey);
   font-size: 12px;
+}
+
+.separator {
+  margin-right: 18px;
+  margin-left: 18px;
+  border-bottom: 1px solid var(--light-grey);
 }

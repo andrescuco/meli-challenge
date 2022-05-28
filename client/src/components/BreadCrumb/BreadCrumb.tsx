@@ -1,3 +1,4 @@
+import { Container, Row, Col } from "react-bootstrap";
 import s from "./BreadCrumb.module.css";
 
 type BreadCrumbProps = {
@@ -6,16 +7,18 @@ type BreadCrumbProps = {
 
 function BreadCrumb({ categories }: BreadCrumbProps) {
   return (
-    <div className={s.grid}>
-      <div className={s.container}>
+    <Container fluid>
+    <Row>
+    <Col xs={{ span: 11, offset: 1 }} className={s.breadcrumbs}>
         {categories.map((category: string, index) => {
           const isLastCategory = index === categories.length - 1;
 
           if (isLastCategory) return <span>&nbsp;{category}</span>;
           return <span>&nbsp;{category} &gt;</span>
         })}
-      </div>
-    </div>
+    </Col>
+    </Row>
+    </Container>
   );
 }
 

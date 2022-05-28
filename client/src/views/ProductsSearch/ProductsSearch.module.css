@@ -26,6 +26,9 @@
 }
 
 .searchBox button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 2.5rem;
   cursor: pointer;
   border-top-right-radius: 4px;
@@ -34,5 +37,5 @@
 }
 
 .searchBox button img {
-  width: 0.75rem;
+  width: 1rem;
 }

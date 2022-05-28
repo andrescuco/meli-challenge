@@ -26,7 +26,9 @@ router.get("/", async (req, res, next) => {
     const categories = sortArrayOfObjectsByKey(
       availableFiltersCategories.values,
       "results"
-    ).map((category) => category.name);
+    )
+      .map((category) => category.name)
+      .slice(0, 4);
 
     const items = data.results.slice(0, 4).map((product) => {
       return {

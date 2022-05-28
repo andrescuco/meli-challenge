@@ -8,6 +8,7 @@ export type Product = {
   id: string;
   condition?: string;
   description?: string;
+  categories?: string[];
   sold_quantity?: string;
   free_shipping: boolean;
   picture: string;

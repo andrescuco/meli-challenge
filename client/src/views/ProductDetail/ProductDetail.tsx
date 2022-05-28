@@ -4,6 +4,7 @@ import { Product } from "../../types";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import s from "./ProductDetail.module.css";
+import BreadCrumb from "../../components/BreadCrumb";
 
 export default function ProductDetail() {
   const { id } = useParams();
@@ -22,6 +23,7 @@ export default function ProductDetail() {
 
   return (
     <div className={s.container}>
+    <BreadCrumb categories={product.categories ?? []} />
     <Container fluid>
       <Row>
         <Col md={{ span: 6, offset: 1 }} className={`${s.content} g-0`}>

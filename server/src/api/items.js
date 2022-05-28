@@ -28,7 +28,7 @@ router.get("/", async (req, res, next) => {
       "results"
     )
       .map((category) => category.name)
-      .slice(0, 4);
+      .slice(-4);
 
     const items = data.results.slice(0, 4).map((product) => {
       return {
@@ -63,6 +63,24 @@ router.get("/:id", async (req, res, next) => {
     const { data: productDescription } = await axios.get(
       `${BASE_URL}/items/${req.params.id}/description`
     );
+    const { data: productSearch } = await axios.get(
+      `${BASE_URL}/sites/MLA/search`,
+      {
+        params: { q: productDetail.title },
+      }
+    );
+
+    const availableFilters = productSearch?.filters.find(
+      (filter) => (filter.id = "category")
+    )?.values;
+
+    const categories = availableFilters?.[0]?.path_from_root
+      .map((category) => category.name)
+      .slice(0, 4);
+
+    const condition = productDetail.attributes.find(
+      (attribute) => attribute.id === "ITEM_CONDITION"
+    ).value_name;
 
     const productInfo = {
       id: productDetail.id,
@@ -73,13 +91,18 @@ router.get("/:id", async (req, res, next) => {
         decimals: getNumberOfDecimals(productDetail.price),
       },
       picture: productDetail.thumbnail,
-      condition: productDetail.condition,
+      condition: condition,
       sold_quantity: productDetail.sold_quantity,
       description: productDescription.plain_text,
     };
 
-    res.json({ ...author, ...productInfo });
+    res.json({
+      ...author,
+      ...productInfo,
+      categories: categories ?? [productDetail.title],
+    });
   } catch (error) {
+    console.log(error);
     next(error);
   }
 });

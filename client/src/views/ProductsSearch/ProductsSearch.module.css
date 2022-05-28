@@ -3,19 +3,22 @@
   padding: 0.75rem 0;
 }
 
+.logo {
+  margin-right: 2rem;
+}
+
 .searchBox {
   display: flex;
   justify-content: space-between;
 }
 
 .searchBox input {
+  width: 100%;
   color: var(--black);
   text-indent: 1rem;
-  margin-left: -15px;
   border: none;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
-  width: 100%;
 }
 
 .searchBox input::placeholder {

@@ -34,7 +34,7 @@ export default function ProductCard({
               <div className={s.info}>
                 <div className={s.summary}>
                   <div className={s.priceAndShipping}>
-                    <span className={s.price}>$ {price.toLocaleString()}</span>
+                    <span className={s.price}>$ {price.toLocaleString('es-CO')}</span>
                       {hasFreeShipping && (
                         <img
                           src={FreeShippingIcon}

@@ -7,6 +7,7 @@ export type Price = {
 export type Product = {
   id: string;
   condition?: string;
+  description?: string;
   sold_quantity?: string;
   free_shipping: boolean;
   picture: string;

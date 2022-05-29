@@ -1,10 +1,16 @@
 import { Product } from "../../types";
-import { BreadCrumb, LoadingScreen, ErrorScreen, ProductCard } from "../../components";
+import {
+  BreadCrumb,
+  LoadingScreen,
+  ErrorScreen,
+  ProductCard,
+} from "../../components";
 import { useProductsSearch } from "../../hooks";
 import s from "./ProductList.module.css";
 
 export default function ProductsList() {
-  const { products, categories, onProductClick, hasErrors } = useProductsSearch();
+  const { products, categories, onProductClick, hasErrors } =
+    useProductsSearch();
 
   if (hasErrors) return <ErrorScreen />;
   if (!products) return <LoadingScreen />;

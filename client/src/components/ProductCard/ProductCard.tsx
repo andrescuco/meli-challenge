@@ -27,20 +27,22 @@ export default function ProductCard({
         <Col md={{ span: 10, offset: 1 }} className={s.container}>
           <Row onClick={() => onProductClick(id)}>
             <Col md={{ span: 8 }} className={s.content}>
-              <div className={s.image} >
-                <img src={picture} alt={`product ${title}`}/>
+              <div className={s.image}>
+                <img src={picture} alt={`product ${title}`} />
               </div>
 
               <div className={s.info}>
                 <div className={s.summary}>
                   <div className={s.priceAndShipping}>
-                    <span className={s.price}>$ {price.toLocaleString('es-CO')}</span>
-                      {hasFreeShipping && (
-                        <img
-                          src={FreeShippingIcon}
-                          alt="shipping truck with green background"
-                        />
-                      )}
+                    <span className={s.price}>
+                      $ {price.toLocaleString("es-CO")}
+                    </span>
+                    {hasFreeShipping && (
+                      <img
+                        src={FreeShippingIcon}
+                        alt="shipping truck with green background"
+                      />
+                    )}
                   </div>
                   <span>{title}</span>
                 </div>

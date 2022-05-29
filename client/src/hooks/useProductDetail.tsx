@@ -12,7 +12,7 @@ export default function useProductDetail() {
     try {
       const { data } = await axios.get(`/api/items/${id}`);
       setProduct(data);
-    } catch(error) {
+    } catch (error) {
       console.error(error);
       setHasErrors(true);
     }

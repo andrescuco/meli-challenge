@@ -1,7 +1,5 @@
 import BreadCrumb from "./BreadCrumb";
-import {
-  render,
-} from "@testing-library/react";
+import { render } from "@testing-library/react";
 
 describe("<BreadCrumb />", () => {
   it("should render categories", () => {
@@ -10,5 +8,5 @@ describe("<BreadCrumb />", () => {
     expect(getByText(/apple/i)).toBeInTheDocument();
     expect(getByText(/iphone/i)).toBeInTheDocument();
     expect(getByText(/128gb/i)).toBeInTheDocument();
-  })
-})
+  });
+});

@@ -34,5 +34,5 @@ export default function useProductsSearch() {
     getProductsListData();
   }, [searchParams]);
 
-  return { products, categories, onProductClick, hasErrors }
+  return { products, categories, onProductClick, hasErrors };
 }

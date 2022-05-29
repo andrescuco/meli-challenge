@@ -1,8 +1,5 @@
 import Button from "./Button";
-import {
-  render,
-  fireEvent
-} from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 
 describe("<Button />", () => {
   it("should render children being passed down", () => {
@@ -14,8 +11,8 @@ describe("<Button />", () => {
     const mockFn = jest.fn();
     const { getByRole } = render(<Button handleClick={mockFn}>Send</Button>);
 
-    const button = getByRole('button');
+    const button = getByRole("button");
     fireEvent.click(button);
     expect(mockFn).toHaveBeenCalledTimes(1);
   });
-})
+});

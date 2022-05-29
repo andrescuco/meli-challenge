@@ -7,7 +7,7 @@ const {
   author,
   getNumberOfDecimals,
   sortArrayOfObjectsByKey,
-} = require("./constants");
+} = require("./helpers");
 
 /**
  * Returns a list of the first four products given a query param.

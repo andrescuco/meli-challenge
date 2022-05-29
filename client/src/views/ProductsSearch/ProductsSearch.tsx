@@ -21,7 +21,11 @@ function SearchBox() {
     <>
       <Container fluid className={s.container}>
         <Row>
-          <Col md={{ span: 10, offset: 1 }} xs={{ span: 10, offset: 1 }} className={`${s.searchBox} g-0`}>
+          <Col
+            md={{ span: 10, offset: 1 }}
+            xs={{ span: 10, offset: 1 }}
+            className={`${s.searchBox} g-0`}
+          >
             <Link to="/">
               <img src={logo} alt="meli logo" className={s.logo} />
             </Link>

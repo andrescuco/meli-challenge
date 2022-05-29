@@ -40,7 +40,11 @@ describe("<ProductsSearch />", () => {
 
     fireEvent.click(submitButton);
 
-    expect(await findByText("Film Tricapa iPod Nano Touch 6 Generacion Combo 5 Unidades")).toBeInTheDocument();
+    expect(
+      await findByText(
+        "Film Tricapa iPod Nano Touch 6 Generacion Combo 5 Unidades"
+      )
+    ).toBeInTheDocument();
     expect(await findByText(/Accesorios para Celulares/i)).toBeInTheDocument();
     expect(await findByText(/\$ 10.864\,1/i)).toBeInTheDocument();
 

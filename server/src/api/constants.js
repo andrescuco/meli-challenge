@@ -12,7 +12,7 @@ const getNumberOfDecimals = (number) => {
 };
 
 const sortArrayOfObjectsByKey = (arrayOfObjects, key) => {
-  return arrayOfObjects.sort((a, b) => (a[key] > b[key] ? 1 : -1));
+  return arrayOfObjects.sort((a, b) => (a[key] < b[key] ? 1 : -1));
 };
 
 module.exports = {

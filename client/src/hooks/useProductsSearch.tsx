@@ -5,7 +5,7 @@ import axios from "axios";
 
 export default function useProductsSearch() {
   const [searchParams] = useSearchParams();
-  const [products, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<Product[]>();
   const [categories, setCategories] = useState<string[]>([]);
   const navigate = useNavigate();
   const searchQuery = searchParams.get("search");

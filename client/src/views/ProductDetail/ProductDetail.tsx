@@ -2,11 +2,12 @@ import { Container, Row, Col } from "react-bootstrap";
 import s from "./ProductDetail.module.css";
 import BreadCrumb from "../../components/BreadCrumb";
 import useProductDetail from "../../hooks/useProductDetail";
+import LoadingScreen from "../../components/LoadingScreen";
 
 export default function ProductDetail() {
   const { product } = useProductDetail();
 
-  if (!product) return <span>"Loading..."</span>;
+  if (!product) return <LoadingScreen />;
 
   return (
     <div className={s.container}>

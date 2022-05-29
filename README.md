@@ -1,10 +1,4 @@
 # MELI Challenge
-
-![Error screen](./demo/error-screen.png)
-![Product detail](./demo/product-detail-mobile)
-![Products list](./demo/products-list-mobile)
-
-
 ## Instructions
 To run the server:
   1. `cd server`
@@ -16,17 +10,12 @@ To run the client:
   2. `npm install`
   3. `npm run dev`
 
-## Features
+## Demos
 
-### Demo
+https://user-images.githubusercontent.com/36432023/170885011-731fd1de-84b4-447c-b8f5-0aa226240b52.mov
 
-### Responsive design
 
-### Loading state
-
-### Error state
-
-### Going directly to the URLs
+https://user-images.githubusercontent.com/36432023/170885423-c46cc13b-1add-4520-b355-0767b2d24492.mov
 
 ## Client
 The frontend was developed with React and TypeScript, using Vite as the

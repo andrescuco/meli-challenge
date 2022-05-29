@@ -26,6 +26,14 @@
     height: 340px;
     margin: 16px;
   }
+
+  .info {
+    padding-left: 2rem;
+  }
+
+  .description {
+    padding-right: 32px;
+  }
 }
 
 .info {

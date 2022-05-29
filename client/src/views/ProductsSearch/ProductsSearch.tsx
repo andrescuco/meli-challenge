@@ -1,5 +1,5 @@
-import { useState, ChangeEvent } from "react";
-import { useNavigate, Outlet, Link } from "react-router-dom";
+import { useState, ChangeEvent, useEffect, KeyboardEvent } from "react";
+import { useNavigate, Outlet, Link, useSearchParams } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import logo from "../../../assets/logo.png";
 import searchIcon from "../../../assets/search-icon.png";
@@ -7,6 +7,7 @@ import s from "./ProductsSearch.module.css";
 
 function SearchBox() {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -14,8 +15,19 @@ function SearchBox() {
   };
 
   const handleSubmit = () => {
-    navigate(`/items?search=${searchQuery}`);
+    if (searchQuery.length) navigate(`/items?search=${searchQuery}`);
   };
+
+  const handleEnterPress = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter") {
+      handleSubmit();
+    }
+  };
+
+  useEffect(() => {
+    const searchQueryParams = searchParams.get("search");
+    if (searchQueryParams) setSearchQuery(searchQueryParams);
+  }, []);
 
   return (
     <>
@@ -32,9 +44,11 @@ function SearchBox() {
             <input
               type="text"
               placeholder="Nunca dejes de buscar"
+              onKeyPress={handleEnterPress}
               onChange={handleChange}
+              value={searchQuery}
             />
-            <button onClick={handleSubmit}>
+            <button onClick={handleSubmit} type="submit">
               <img src={searchIcon} alt="magnifying glass icon" />
             </button>
           </Col>

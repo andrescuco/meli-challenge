@@ -26,7 +26,7 @@ export default function ProductCard({
       <Row>
         <Col md={{ span: 10, offset: 1 }} className={s.container}>
           <Row onClick={() => onProductClick(id)}>
-            <Col md={{ span: 8 }} className={s.content}>
+            <Col md={{ span: 8, order: 1 }} xs={{ order: 2 }} className={s.content}>
               <div className={s.image}>
                 <img src={picture} alt={`product ${title}`} />
               </div>
@@ -49,7 +49,7 @@ export default function ProductCard({
               </div>
             </Col>
 
-            <Col md={{ span: 2, offset: 2 }}>
+            <Col md={{ span: 2, offset: 2, order: 2 }} xs={{ order: 1 }}>
               <div className={s.state}>
                 <span>{stateName}</span>
               </div>

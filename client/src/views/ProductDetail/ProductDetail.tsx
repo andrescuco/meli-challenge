@@ -1,4 +1,4 @@
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Image } from "react-bootstrap";
 import {
   BreadCrumb,
   LoadingScreen,
@@ -20,7 +20,7 @@ export default function ProductDetail() {
       <Container fluid>
         <Row>
           <Col md={{ span: 6, offset: 1 }} className={`${s.content} g-0`}>
-            <img src={product.picture} alt={`product ${product.title}`} />
+            <Image fluid src={product.picture} alt={`product ${product.title}`} />
           </Col>
           <Col md={{ span: 1 }} style={{ backgroundColor: "white" }}></Col>
           <Col md={{ span: 3 }} className={`${s.content} g-0`}>

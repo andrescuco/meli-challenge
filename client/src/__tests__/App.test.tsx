@@ -9,7 +9,8 @@ import {
 } from "@testing-library/react";
 
 /**
- * Integration test of the entire app flow.
+ * Integration test that uses msw to mock the api responses, very useful to
+ * test the entire flow of the app.
  */
 describe("<ProductsSearch />", () => {
   const server = setupServer(
@@ -38,12 +39,10 @@ describe("<ProductsSearch />", () => {
     expect(searchInput).toHaveValue("airpods");
 
     fireEvent.click(submitButton);
-    expect(await findByText(/\$ 10,864\.1/i)).toBeInTheDocument();
-    expect(
-      await findByText(
-        "Film Tricapa iPod Nano Touch 6 Generacion Combo 5 Unidades"
-      )
-    ).toBeInTheDocument();
+
+    expect(await findByText("Film Tricapa iPod Nano Touch 6 Generacion Combo 5 Unidades")).toBeInTheDocument();
+    expect(await findByText(/Accesorios para Celulares/i)).toBeInTheDocument();
+    expect(await findByText(/\$ 10.864\,1/i)).toBeInTheDocument();
 
     fireEvent.click(
       await findByText(

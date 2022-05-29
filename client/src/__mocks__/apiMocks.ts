@@ -100,6 +100,11 @@ export const mockProductDetail = {
     name: "Andrés",
     lastname: "Cuellar",
   },
+  categories: [
+    "Category #1",
+    "Category #2",
+    "Category #3",
+  ],
   id: "MLA812447160",
   title: "iPod Touch 32gb - Silver",
   price: {

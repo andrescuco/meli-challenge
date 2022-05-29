@@ -1,5 +1,5 @@
 import { Container, Row, Col } from "react-bootstrap";
-import { BreadCrumb, LoadingScreen, ErrorScreen } from "../../components"
+import { BreadCrumb, LoadingScreen, ErrorScreen, Button } from "../../components"
 import { useProductDetail } from "../../hooks";
 import s from "./ProductDetail.module.css";
 
@@ -25,7 +25,7 @@ export default function ProductDetail() {
             </span>
             <span className={s.title}>{product.title}</span>
             <span className={s.price}>$ {product.price.amount.toLocaleString('es-CO')}</span>
-            <button>Comprar</button>
+            <Button>Comprar</Button>
           </div>
         </Col>
       </Row>

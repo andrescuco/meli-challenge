@@ -1,9 +1,7 @@
 import { Container, Row, Col } from "react-bootstrap";
+import { BreadCrumb, LoadingScreen, ErrorScreen } from "../../components"
+import { useProductDetail } from "../../hooks";
 import s from "./ProductDetail.module.css";
-import BreadCrumb from "../../components/BreadCrumb";
-import useProductDetail from "../../hooks/useProductDetail";
-import LoadingScreen from "../../components/LoadingScreen";
-import ErrorScreen from "../../components/ErrorScreen";
 
 export default function ProductDetail() {
   const { product, hasErrors } = useProductDetail();

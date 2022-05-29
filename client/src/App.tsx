@@ -1,15 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ProductsSearch from "./views/ProductsSearch";
-import ProductDetail from "./views/ProductDetail";
-import ProductsList from "./views/ProductsList";
+import { ProductsSearch, ProductDetail, ProductsList } from "./views";
 
 export const App = () => (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<ProductsSearch />}>
-          <Route path="/items/:id" element={<ProductDetail />} />
-          <Route path="/items" element={<ProductsList />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<ProductsSearch />}>
+        <Route path="/items/:id" element={<ProductDetail />} />
+        <Route path="/items" element={<ProductsList />} />
+      </Route>
+    </Routes>
+  </BrowserRouter>
 );

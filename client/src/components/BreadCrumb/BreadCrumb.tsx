@@ -15,8 +15,8 @@ function BreadCrumb({ categories }: BreadCrumbProps) {
             {categories.map((category: string, index) => {
               const isLastCategory = index === categories.length - 1;
 
-              if (isLastCategory) return <span>&nbsp;<b>{category}</b></span>;
-              return <span>&nbsp;{category} <ChevronRight /></span>
+              if (isLastCategory) return <span key={index} >&nbsp;<b>{category}</b></span>;
+              return <span key={index}>&nbsp;{category} <ChevronRight /></span>
             })}
           </div>
         </Col>

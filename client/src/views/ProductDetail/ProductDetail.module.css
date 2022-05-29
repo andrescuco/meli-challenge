@@ -9,6 +9,7 @@
 .content img {
   width: 680px;
   height: 680px;
+  margin: 32px;
 }
 
 .info {
@@ -50,7 +51,6 @@
 
 .description h2 {
   font-size: 28px;
-  margin-top: 32px;
   margin-bottom: 32px;
 }
 

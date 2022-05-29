@@ -7,17 +7,23 @@ export default function useProductsSearch() {
   const [searchParams] = useSearchParams();
   const [products, setProducts] = useState<Product[]>();
   const [categories, setCategories] = useState<string[]>([]);
+  const [hasErrors, setHasErrors] = useState<boolean>(false);
   const navigate = useNavigate();
   const searchQuery = searchParams.get("search");
 
   const getProductsListData = async () => {
-    const { data } = await axios.get(`/api/items`, {
-      params: { search: searchQuery },
-    });
+    try {
+      const { data } = await axios.get(`/api/items`, {
+        params: { search: searchQuery },
+      });
 
-    setProducts(data.items);
-    setCategories(data.categories);
-    return data;
+      setProducts(data.items);
+      setCategories(data.categories);
+      return data;
+    } catch (error) {
+      console.error(error);
+      setHasErrors(true);
+    }
   };
 
   const onProductClick = (productId: string) => {
@@ -28,5 +34,5 @@ export default function useProductsSearch() {
     getProductsListData();
   }, [searchParams]);
 
-  return { products, categories, onProductClick }
+  return { products, categories, onProductClick, hasErrors }
 }

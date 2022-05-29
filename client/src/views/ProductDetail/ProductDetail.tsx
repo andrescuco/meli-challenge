@@ -3,10 +3,12 @@ import s from "./ProductDetail.module.css";
 import BreadCrumb from "../../components/BreadCrumb";
 import useProductDetail from "../../hooks/useProductDetail";
 import LoadingScreen from "../../components/LoadingScreen";
+import ErrorScreen from "../../components/ErrorScreen";
 
 export default function ProductDetail() {
-  const { product } = useProductDetail();
+  const { product, hasErrors } = useProductDetail();
 
+  if (hasErrors) return <ErrorScreen />;
   if (!product) return <LoadingScreen />;
 
   return (

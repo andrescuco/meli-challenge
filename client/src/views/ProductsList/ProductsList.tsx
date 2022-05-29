@@ -4,10 +4,12 @@ import ProductCard from "../../components/ProductCard";
 import BreadCrumb from "../../components/BreadCrumb";
 import s from "./ProductList.module.css";
 import LoadingScreen from "../../components/LoadingScreen";
+import ErrorScreen from "../../components/ErrorScreen";
 
 export default function ProductsList() {
-  const { products, categories, onProductClick } = useProductsSearch();
+  const { products, categories, onProductClick, hasErrors } = useProductsSearch();
 
+  if (hasErrors) return <ErrorScreen />;
   if (!products) return <LoadingScreen />;
 
   return (

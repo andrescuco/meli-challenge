@@ -6,15 +6,21 @@ import axios from "axios";
 export default function useProductDetail() {
   const { id } = useParams();
   const [product, setProduct] = useState<Product>();
+  const [hasErrors, setHasErrors] = useState<boolean>(false);
 
   const getProductDetailData = async () => {
-    const { data } = await axios.get(`/api/items/${id}`);
-    setProduct(data);
+    try {
+      const { data } = await axios.get(`/api/items/${id}`);
+      setProduct(data);
+    } catch(error) {
+      console.error(error);
+      setHasErrors(true);
+    }
   };
 
   useEffect(() => {
     getProductDetailData();
   }, [id]);
 
-  return { product };
+  return { product, hasErrors };
 }

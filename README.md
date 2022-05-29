@@ -1,5 +1,10 @@
 # MELI Challenge
 
+![Error screen](./demo/error-screen.png)
+![Product detail](./demo/product-detail-mobile)
+![Products list](./demo/products-list-mobile)
+
+
 ## Instructions
 To run the server:
   1. `cd server`
